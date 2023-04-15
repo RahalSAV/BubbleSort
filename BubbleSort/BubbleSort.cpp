@@ -24,10 +24,29 @@ void bubbleSort(int array[], int n) {
     }
 }
 
+void optimizedBubbleSort(int array[], int n) {
+    bool status;
+    for (int i = 0; i < n - 1; i++) {
+        status = false;
+        for (int j = 0; j < n - 1; j++) {
+            if (array[j] > array[j + 1]) {
+                int temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+                status = true;
+            }
+        }
+        if (status == false) {
+            break;
+        }
+        printArray(array, n);
+    }
+}
+
 int main()
 {
     int array[] = { 5,4,2,7,1,9 };
-    bubbleSort(array, 6);
+    optimizedBubbleSort(array, 6);
     return 0;
 }
 
